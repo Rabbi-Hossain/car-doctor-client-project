@@ -7,7 +7,6 @@ import { AuthContext } from "../../Provider/AuthProvider";
 const Checkout = () => {
     const service = useLoaderData()
     const { title, price, _id,img } = service
-    console.log(price);
     const {user} = useContext(AuthContext)
     const handleBookService = event=>{
         event.preventDefault()

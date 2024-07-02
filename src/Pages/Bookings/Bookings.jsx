@@ -7,14 +7,17 @@ const Bookings = () => {
     const { user } = useContext(AuthContext)
     const [bookings, setBookings] = useState([])
 
-    const url = `http://localhost:5000/bookings`
+    const url = `http://localhost:5000/bookings?email=${user?.email}`;
+    // const url = `http://localhost:5000/bookings?email=car@gmail.com`;
+    // const url = 'http://localhost:5000/bookings'
 
     useEffect(() => {
-        axios.get(url)
+
+        axios.get(url, {withCredentials: true})
         .then(res=>{
             setBookings(res.data)
         })
-    }, [])
+    }, [url])
 
 
     const handleDelete = id =>{
